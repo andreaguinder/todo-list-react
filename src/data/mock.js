@@ -8,13 +8,13 @@ const tareas = [
   {
     id: 2,
     title: "Sacar la basura",
-    descripcion: "Ir a la plaza Luján",
+    descripcion: "Resiar los tachos de toda la casa",
     status: false
   },
   {
     id: 3,
     title: "Lavar los platos",
-    descripcion: "Ir a la plaza Luján",
+    descripcion: "Fijarse si hay detergente",
     status: false
   },
   {
