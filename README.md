@@ -42,60 +42,10 @@ La aplicación está organizada para favorecer la escalabilidad y limpieza:
 
 ---
 
-## Instrucciones para Ejecutar el Proyecto Localmente
+## ¿Te gustaría colaborar o tenés un desafío laboral?
 
-Para clonar, instalar las dependencias y ejecutar este proyecto en tu entorno local, seguí estos pasos desde tu terminal:
+¡Me encantaría conectar con vos! Estoy abierta a nuevas oportunidades, proyectos desafiantes o simplemente charlar sobre tecnología.
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone <https://github.com/andreaguinder/react-181751-modulo-2-unidad-1-hooks-tarea-1-guinder-andrea.git>
-
-2. **Ingresar a la carpeta del proyecto**
-Luego moverse del directorio que se creó con el nombre del proyecto:
-    ```bash
-    cd react-18751-unidad-4-tarea-4-guinder-andrea
-
-3. **Instalar las dependencias**
-Instalar todos los paquetes necesarios especificados en el package.json (incluyendo React y las herramientas de desarrollo como SASS):
-    ```bash
-    npm install
-
-4. **Ejecutar el servidor de desarrollo**
-Iniciar el entorno de desarrollo local para ver la aplicación en el navegador:
-    ```bash
-    npm run dev
-
-5. Abrir en el navegador
-Una vez que la terminal te indique que el servidor está corriendo, abre tu navegador e ingresa la dirección que te figure ejemplo:
-
-http://localhost:5173
-
----
-
-##  Capturas de pantalla
-
-En /src/proyecto adjunto capturas de pantalla de mobile y desktop de como se visualiza el proyecto en el navegador y también el pdf de la tarea.
-
----
-
-##  Créditos del Autor
-
-Estudiante: Andrea Guinder
-
-Curso: React (Comisión 181751)
-
-Módulo: 2 - Unidad 1: Hooks - Tarea 1
-
-Institución: Universidad Tecnológica Nacional
-
----
-
-##  Fuentes y Referencias
-
-* Material de Clase: Material teórico y práctico proporcionado por la Universidad Tecnológica Nacional (UTN).
-
-* Curso Profesional de React (CódigoFacilito): Dictado por Juan Ortiz del Toro.
-
-* Curso de React JS (CoderHouse): Ejercicios prácticos y conceptos teóricos integrados durante el cursado actual.
-
-* Asistencia de IA: Soporte técnico y resolución de dudas mediante Gemini.
+* **Email:** [andreabelen.guinder@gmail.com](mailto:andreabelen.guinder@gmail.com)
+* **LinkedIn:** [https://www.linkedin.com/in/andrea-guinder/](https://www.linkedin.com/in/andrea-guinder/)
+* **Portfolio:** [https://andreaguinder.com/](https://andreaguinder.com/)
