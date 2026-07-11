@@ -41,7 +41,7 @@ function App() {
     );
   }, [listaTareas, busqueda]);
 
-  const logoAlt = "Logo de Todoan, tu lista de tareas";
+  const logoAlt = "Logo de Todoan, tu App de tareas";
 
   return (
     <>
