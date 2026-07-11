@@ -23,10 +23,74 @@
   <meta property="twitter:title" content="Todoan - Mi App de Tareas" />
   <meta property="twitter:description" content="Una app genial y rápida para organizar tu día." />
   <meta property="twitter:image" content="https://todoan.vercel.app/og-image.png" />
+
+  <!-- 1. Importamos la fuente Lato (Si ya la tenías, no la dupliques) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  /* Reseteo básico y fondo */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d5edf6;
+    font-family: "Lato", sans-serif;
+  }
+
+  /* Contenedor centrado absoluto */
+  .splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  /* Tu logo vertical centrado */
+  .splash-logo {
+    max-width: 180px; /* Ajustalo a tu gusto si queda muy grande/chico */
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  /* Estilos para tu firma */
+  .splash-signature {
+    color: var(--color-text-general, #000000); /* Si falla la variable en el root, tira fallback a negro */
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .splash-signature a {
+    color: var(--color-primary, #0E58C4); /* Si falla la variable en el root, tira tu azul */
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+<div id="root">
+  <!-- Todo esto se va a renderizar al toque y React lo va a pisar solo al cargar -->
+  <div class="splash-container">
+    <img src="/logo-todoan-ver.png" alt="Logo Todoan" class="splash-logo" />
+    <h1 class="splash-signature">
+      Desarrollado por <a href="https://guinderstudio.com/">Guinder Studio</a>
+    </h1>
+  </div>
+</div>
+
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
