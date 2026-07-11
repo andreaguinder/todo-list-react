@@ -13,7 +13,7 @@
     margin: 16px auto;
 
     h2 {
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 700;
         color: var(--color-primary);
     }
@@ -37,7 +37,7 @@
 
             input,
             textarea {
-                min-height: 32px;
+                min-height: 36px;
                 border-radius: 8px;
                 padding: 4px 8px;
                 width: 100%;
@@ -85,10 +85,10 @@
             background-color: var(--color-primary);
             color: var(--color-bg);
             font-weight: 500;
-            padding: 8px;
+                padding: 4px 8px 6px;
             border-radius: 8px;
             border: none;
-            font-size: 12px;
+            font-size: 16px;
 
             &:hover {
                 background-color: var(--color-secondary);
@@ -100,6 +100,10 @@
             justify-content: space-between;
             gap: 16px;
             width: 100%;
+
+            label {
+                font-size: 14px;
+            }
 
             input {
                 margin-right: 8px;
@@ -146,7 +150,6 @@
 
                 input,
                 textarea {
-                    height: 32px;
                     border-radius: 8px;
                     padding: 4px 8px;
                     width: 500px;

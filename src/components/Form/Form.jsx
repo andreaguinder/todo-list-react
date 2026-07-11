@@ -32,7 +32,7 @@ const Form = (task) => {
     if (e.target.value.trim() !== "") {
       setError("");
     }
-    }
+  }
 
   const handleDescripcion = (e) => {
     setDescripcion(e.target.value)
@@ -45,52 +45,56 @@ const Form = (task) => {
 
   return (
     <section className={styles.containerForm}>
-      <h2>Agregar tarea nueva:</h2>
+      <h2>Agregar tarea nueva</h2>
       <form onSubmit={handleSubmit}>
 
-<div className={styles.general}>
-        <div className={styles.info}>
-          <div>
-            <label htmlFor="title">Nombre de la tarea:</label>
-            <input type="text"
-              placeholder="Escribe el nombre de la tarea"
-              onChange={(e) => handleTitle(e)}
-              value={title} />
+        <div className={styles.general}>
+          <div className={styles.info}>
+            <div>
+              <label htmlFor="title">Nombre de la tarea:</label>
+              <input type="text"
+                placeholder="Escribe el nombre de la tarea"
+                onChange={(e) => handleTitle(e)}
+                value={title} />
               {error && <span className={styles.errorTitle}>{error}</span>}
+            </div>
+            <div>
+              <label htmlFor="title">Descripción de la tarea:</label>
+              <textarea
+                name="descripcion"
+                id=""
+                placeholder="Describe la tarea"
+                onChange={(e) => handleDescripcion(e)}
+                value={descripcion}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="title">Descripción de la tarea:</label>
-            <textarea
-              name="descripcion"
-              id=""
-              placeholder="Describe la tarea"
-              onChange={(e) => handleDescripcion(e)}
-              value={descripcion}
-            />
+          <div className={styles.completada}>
+            <p>¿Está completada?</p>
+            <label>
+              <input
+                type="radio"
+                name="estaCompletada"
+                value="true"
+                onChange={handleEstaCompletada}
+                checked={estaCompletada === true}
+              />
+              Si
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="estaCompletada"
+                value="false"
+                onChange={handleEstaCompletada}
+                checked={estaCompletada === false}
+              />
+              No
+            </label>
           </div>
         </div>
-        <div className={styles.completada}>
-          <p>¿Está completada?</p>
-          <label>
-            <input type="radio"
-              name="opcion"
-              defaultValue="si"
-              onChange={(e) => handleEstaCompletada(e)}
-              checked={estaCompletada === true} />
-            Si
-          </label>
-          <label>
-            <input type="radio"
-              name="opcion"
-              defaultValue="no"
-              onChange={(e) => handleEstaCompletada(e)}
-              checked={estaCompletada === false} />
-            No
-          </label>
-        </div>
-</div>
-<div>
-        <button type="submit">Agregar tarea</button>
+        <div>
+          <button type="submit">Agregar tarea</button>
         </div>
       </form>
     </section>
