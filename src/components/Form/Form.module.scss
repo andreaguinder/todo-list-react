@@ -81,7 +81,7 @@
 
         button {
             @include flexCenter(row);
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
             color: var(--color-bg);
             font-weight: 500;
             padding: 8px;
@@ -90,7 +90,7 @@
             font-size: 12px;
 
             &:hover {
-                background-color: var(--color-primary);
+                background-color: var(--color-secondary);
             }
         }
 

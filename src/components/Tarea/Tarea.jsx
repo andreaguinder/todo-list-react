@@ -29,9 +29,11 @@ const Tarea = ({ task, onToggle, onClick }) => {
 
 
 
-            <div className={styles.descripcionYestado}>
-                <p>{descripcion}</p>
-            </div>
+           {descripcion && (
+                <div className={styles.descripcionYestado}>
+                    <p>{descripcion}</p>
+                </div>
+            )}
 
 
         </div>

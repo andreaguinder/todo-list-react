@@ -8,7 +8,7 @@
     background-color: var(--color-bg);
     border: 2px solid var(--color-primary);
     border-radius: 8px;
-    padding: 8px;
+    padding: 16px;
     min-width: 340px;
 
     h1 {
@@ -26,15 +26,18 @@
         max-width: 310px;
         background: var(--color-bg);
         color: var(--color-text-general);
-        border: 1px solid var(--color-secondary);
-
+        border: 2px solid var(--color-secondary);
+outline: none; 
+  
+  // (Opcional) Un toque de transición para que el cambio de color sea suave
+  transition: border-color 0.2s ease;
 
         &::placeholder {
             color: var(--color-text-secondary);
         }
 
         &:focus {
-            border: 2px solid var(--color-secondary);
+            border-color: var(--color-primary);
         }
     }
 
