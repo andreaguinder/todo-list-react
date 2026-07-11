@@ -49,6 +49,11 @@ function App() {
   useEffect(() => {
     const handleAppInstalled = () => {
       setMostrarModal(true);
+
+      if (typeof window.clarity === 'function') {
+      window.clarity("event", "pwa_install");
+    }
+    
     };
     window.addEventListener('appinstalled', handleAppInstalled);
     return () => window.removeEventListener('appinstalled', handleAppInstalled);
