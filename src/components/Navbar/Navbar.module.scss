@@ -1,9 +1,8 @@
-@use "../../styles/variables"as *;
+@use "../../styles/variables" as *;
 
 .navbar {
     @include flexCenter(column);
-    gap: 8px;
-    justify-content: space-between;
+    gap: 12px;
     width: 100%;
     background-color: var(--color-bg);
     border: 2px solid var(--color-primary);
@@ -11,11 +10,18 @@
     padding: 16px;
     min-width: 340px;
 
-    h1 {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--color-primary);
+    // 🚀 NUEVO: Flex horizontal para separar logo y login arriba
+    .topHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
 
+    h1 {
+        margin: 0;
+        display: flex;
+        align-items: center;
     }
 
     input {
@@ -27,10 +33,8 @@
         background: var(--color-bg);
         color: var(--color-text-general);
         border: 2px solid var(--color-secondary);
-outline: none; 
-  
-  // (Opcional) Un toque de transición para que el cambio de color sea suave
-  transition: border-color 0.2s ease;
+        outline: none; 
+        transition: border-color 0.2s ease;
 
         &::placeholder {
             color: var(--color-text-secondary);
@@ -44,35 +48,100 @@ outline: none;
     .logoTodoan {
         max-width: 130px;
     }
+
+    .authContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    .loginBtn {
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+
+        &:hover {
+            background-color: var(--color-secondary);
+        }
+    }
+
+    .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid var(--color-primary);
+        object-fit: cover;
+    }
+
+    .logoutBtn {
+        background: none;
+        border: none;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        border-radius: 4px;
+        transition: color 0.2s, background-color 0.2s;
+
+        &:hover {
+            color: #ff5555;
+            background-color: rgba(255, 85, 85, 0.05);
+        }
+    }
 }
 
 @media screen and (min-width: 1024px) {
-
-
     .navbar {
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
+        align-items: center;
         border: 3px solid var(--color-primary);
         border-radius: 16px;
         padding: 16px 32px;
         max-width: 1200px;
 
-        h1 {
-            font-size: 32px;
+        // Desarmamos el bloque flex en desktop para usar la distribución nativa de antes
+        .topHeader {
+            width: auto;
+            display: contents; // Hace que actúe como si los hijos pertenecieran directo a .navbar
         }
 
         input {
             height: 48px;
-            width: 100%;
-            width: 700px;
+            width: 500px;
             font-size: 16px;
-            max-width: 800px;
-
+            max-width: 600px;
+            order: 2; // El buscador queda al medio
         }
 
-            .logoTodoan {
-        max-width: 230px;
-    }
+        h1 {
+            order: 1; // El logo a la izquierda
+        }
+
+        .authContainer {
+            order: 3; // El login a la derecha
+            justify-content: flex-end;
+            min-width: 150px;
+        }
+
+        .logoTodoan {
+            max-width: 230px;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+        }
     }
 }
