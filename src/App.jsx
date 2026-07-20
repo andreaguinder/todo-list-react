@@ -13,7 +13,7 @@ import { ContainerLoading } from "./components/ContainerLoading/ContainerLoading
 import { useAuth } from "./context/AuthContext";
 import { useFirebaseTasks } from "./hooks/useFirebaseTasks";
 
-import logo from "./assets/logo-todoan.png";
+import logo from "./assets/logo-chekeo.png";
 
 function App() {
   const { user, loginWithGoogle, logout, authLoading } = useAuth();
@@ -44,7 +44,7 @@ function App() {
     );
   }, [listaTareas, busqueda]);
 
-  const logoAlt = "Logo de Todoan, tu App de tareas";
+  const logoAlt = "Logo de Chekeo, tu App de tareas";
   const [mostrarModal, setMostrarModal] = useState(false);
 
   useEffect(() => {

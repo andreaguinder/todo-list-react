@@ -21,7 +21,7 @@ const Navbar = ({ onSearch, imagen, alt, user, onLogin, onLogout }) => {
             {/* 🚀 NUEVO: Agrupamos Logo y Auth en una cabecera para controlarlo en mobile */}
             <div className={styles.topHeader}>
                 <h1>
-                    <img src={imagen} alt={alt} className={styles.logoTodoan} />
+                    <img src={imagen} alt={alt} className={styles.logoChekeo} />
                 </h1>
                 
                 <div className={styles.authContainer}>

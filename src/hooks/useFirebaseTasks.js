@@ -25,8 +25,8 @@ export const useFirebaseTasks = (initialValue = []) => {
   useEffect(() => {
     if (!user) return;
 
-    // Guardamos las tareas en un documento único por usuario dentro de la colección "todoan_tasks"
-    const docRef = doc(db, "todoan_tasks", user.email);
+    // Guardamos las tareas en un documento único por usuario dentro de la colección "chekeo_tasks"
+    const docRef = doc(db, "chekeo_tasks", user.email);
 
     const unsubscribeSnapshot = onSnapshot(docRef, (docSnap) => {
       if (docSnap.exists()) {
@@ -46,7 +46,7 @@ export const useFirebaseTasks = (initialValue = []) => {
 
     if (user) {
       try {
-        const docRef = doc(db, "todoan_tasks", user.email);
+        const docRef = doc(db, "chekeo_tasks", user.email);
         // Guardamos la lista en la nube
         await setDoc(docRef, { lista: newTasks }, { merge: true });
       } catch (error) {

@@ -8,8 +8,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'prompt',
       manifest: {
-        name: 'Todoan - Mi App de Tareas',
-        short_name: 'Todoan',
+        name: 'Chekeo - Mi App de Tareas',
+        short_name: 'Chekeo',
         description: 'Una app genial para organizar mi día',
 
         theme_color: '#0E58C4',   
