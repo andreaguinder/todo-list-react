@@ -7,7 +7,9 @@ const Navbar = ({ onSearch, imagen, alt, user, onLogin, onLogout }) => {
     const inputRef = useRef(null);
 
     useEffect(() => {
-        inputRef.current.focus();
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
     }, []);
 
     const handleSearch = (e) => {
@@ -18,7 +20,7 @@ const Navbar = ({ onSearch, imagen, alt, user, onLogin, onLogout }) => {
 
     return (
         <div className={styles.navbar}>
-            {/* 🚀 NUEVO: Agrupamos Logo y Auth en una cabecera para controlarlo en mobile */}
+            {/* Cabecera con Logo y Auth */}
             <div className={styles.topHeader}>
                 <h1>
                     <img src={imagen} alt={alt} className={styles.logoChekeo} />
@@ -32,11 +34,12 @@ const Navbar = ({ onSearch, imagen, alt, user, onLogin, onLogout }) => {
                                     src={user.photoURL} 
                                     alt={user.displayName || "Avatar"} 
                                     className={styles.avatar} 
-                                    referrerPolicy="no-referrer" // 💡 FIX: Evita que la foto de Google se rompa
-                                    title={`Hola, ${user.displayName}`}
+                                    referrerPolicy="no-referrer"
+                                    title={`Hola, ${user.displayName || 'Usuario'}`}
                                 />
                             )}
                             <button 
+                                type="button"
                                 className={styles.logoutBtn} 
                                 onClick={onLogout}
                                 aria-label="Cerrar sesión"
@@ -46,7 +49,11 @@ const Navbar = ({ onSearch, imagen, alt, user, onLogin, onLogout }) => {
                             </button>
                         </div>
                     ) : (
-                        <button className={styles.loginBtn} onClick={onLogin}>
+                        <button 
+                            type="button" 
+                            className={styles.loginBtn} 
+                            onClick={onLogin}
+                        >
                             Conectar con Google
                         </button>
                     )}
