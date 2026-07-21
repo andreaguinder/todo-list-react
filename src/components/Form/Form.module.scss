@@ -1,191 +1,246 @@
-@use "../../styles/variables"as *;
+@use "../../styles/variables" as *;
 
 .containerForm {
-    @include flexCenter(column);
-    justify-content: space-around;
-    align-items: flex-start;
+  @include flexCenter(column);
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px auto;
+  transition: padding 0.3s ease; /* Transición suave del padding si querés */
+
+  /* Botón interactivo para desplegar/contraer */
+  .accordionHeader {
+    @include flexCenter(row);
+    justify-content: space-between;
     width: 100%;
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-primary);
-    border-radius: 8px;
-    padding: 16px;
-    gap: 16px;
-    margin: 16px auto;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--color-primary);
 
     h2 {
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--color-primary);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0;
+    }
+
+    .iconContainer {
+      @include flexCenter(row);
+      color: var(--color-primary);
+      transition: transform 0.3s ease;
+
+      /* Clase opcional por si querés rotar un solo ícono tipo + en vez de intercambiarlo */
+      &.isOpen {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  /* Wrapper para la animación CSS fluida usando CSS Grid */
+  .formCollapseWrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+
+    &.isOpen {
+      grid-template-rows: 1fr;
+
+      form {
+        opacity: 1;
+        visibility: visible;
+        margin-top: 16px; /* Espacio con el header cuando se abre */
+      }
+    }
+  }
+
+  form {
+    @include flexCenter(column);
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    overflow: hidden; /* Clave para el truco de 0fr -> 1fr */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, margin-top 0.35s ease;
+
+    .general {
+      @include flexCenter(column);
+      align-items: flex-start;
+      width: 100%;
+      gap: 16px;
+    }
+
+    .info {
+      @include flexCenter(column);
+      gap: 16px;
+
+      input,
+      textarea {
+        min-height: 36px;
+        border-radius: 8px;
+        padding: 4px 8px;
+        width: 100%;
+        background: var(--color-bg);
+        color: var(--color-text-general);
+        border: 2px solid var(--color-secondary);
+        gap: 8px;
+        min-width: 310px;
+        outline: none;
+
+        &::placeholder {
+          color: var(--color-text-secondary);
+          font-size: 14px;
+        }
+
+        &:focus {
+          border-color: var(--color-primary);
+        }
+      }
+
+      textarea {
+        min-height: 64px;
+      }
+
+      div {
+        @include flexCenter(column);
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      .errorTitle {
+        color: var(--color-error);
+        font-size: 12px;
+        transform: translateY(-5px);
+      }
+    }
+
+    button {
+      @include flexCenter(row);
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      font-weight: 500;
+      padding: 4px 8px 6px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-secondary);
+      }
+    }
+
+    .completada {
+      @include flexCenter(row);
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+
+      label {
+        font-size: 14px;
+      }
+
+      input {
+        margin-right: 8px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .containerForm {
+    form {
+      .info {
+        input,
+        textarea {
+          min-width: 570px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .containerForm {
+    border: 3px solid var(--color-primary);
+    border-radius: 16px;
+    padding: 16px 32px;
+    margin: 32px auto 48px;
+    max-width: 1200px;
+
+    .accordionHeader {
+      h2 {
+        font-size: 24px;
+      }
     }
 
     form {
-        @include flexCenter(column);
+      gap: 0px;
+
+      .general {
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+      }
+
+      .info {
+        gap: 24px;
+        flex-direction: row;
         align-items: flex-start;
-        gap: 16px;
-        width: 100%;
 
-        .general {
-            @include flexCenter(column);
-            align-items: flex-start;
-            width: 100%;
-            gap: 16px;
+        input,
+        textarea {
+          border-radius: 8px;
+          padding: 4px 8px;
+          min-width: 500px;
+          width: 500px;
+          background: var(--color-bg);
+          color: var(--color-text-general);
+          gap: 16px;
+          outline: none;
+
+          &::placeholder {
+            color: var(--color-text-secondary);
+          }
+
+          &:focus {
+            border-color: var(--color-primary);
+          }
         }
 
-        .info {
-            @include flexCenter(column);
-            gap: 16px;
-
-            input,
-            textarea {
-                min-height: 36px;
-                border-radius: 8px;
-                padding: 4px 8px;
-                width: 100%;
-                background: var(--color-bg);
-                color: var(--color-text-general);
-                border: 2px solid var(--color-secondary);
-                gap: 8px;
-                min-width: 310px;
-                outline: none;
-
-                &::placeholder {
-                    color: var(--color-text-secondary);
-                    font-size: 14px;
-                }
-
-                &:focus {
-                    border-color: var(--color-primary);
-                }
-
-            }
-
-            textarea {
-                min-height: 64px;
-            }
-
-            div {
-                @include flexCenter(column);
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            label {
-                font-size: 14px;
-            }
-
-            .errorTitle {
-                color: var(--color-error);
-                font-size: 12px;
-                transform: translateY(-5px);
-            }
+        textarea {
+          min-height: 74px;
+          padding-top: 8px;
         }
 
-        button {
-            @include flexCenter(row);
-            background-color: var(--color-primary);
-            color: var(--color-bg);
-            font-weight: 500;
-                padding: 4px 8px 6px;
-            border-radius: 8px;
-            border: none;
-            font-size: 14px;
-
-            &:hover {
-                background-color: var(--color-secondary);
-            }
+        div {
+          gap: 8px;
         }
 
-        .completada {
-            @include flexCenter(row);
-            justify-content: space-between;
-            gap: 16px;
-            width: 100%;
-
-            label {
-                font-size: 14px;
-            }
-
-            input {
-                margin-right: 8px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-
+        .errorTitle {
+          font-size: 14px;
         }
+      }
 
-
+      .completada {
+        justify-content: flex-start;
+        transform: translateY(-20px);
+      }
     }
-}
-
-@media screen and (min-width:1024px) {
-
-
-    .containerForm {
-        border: 3px solid var(--color-primary);
-        border-radius: 16px;
-        padding: 16px 32px;
-        gap: 16px;
-        margin: 32px auto 48px;
-        max-width: 1200px;
-
-        h2 {
-            font-size: 24px;
-        }
-
-        form {
-            gap: 0px;
-
-            .general {
-                justify-content: space-between;
-                align-items: center;
-                gap: 0;
-            }
-
-            .info {
-                gap: 24px;
-                flex-direction: row;
-                align-items: flex-start;
-
-                input,
-                textarea {
-                    border-radius: 8px;
-                    padding: 4px 8px;
-                    width: 500px;
-                    background: var(--color-bg);
-                    color: var(--color-text-general);
-                    gap: 16px;
-                    outline: none;
-
-                    &::placeholder {
-                        color: var(--color-text-secondary);
-                    }
-
-                    &:focus {
-                        border-color: var(--color-primary);
-                    }
-
-                }
-
-                textarea {
-                    min-height: 74px;
-                    padding-top: 8px;
-                }
-
-                div {
-                    gap: 8px;
-                }
-
-                .errorTitle {
-                    font-size: 14px;
-                }
-            }
-
-            .completada {
-                justify-content: flex-start;
-                transform: translateY(-20px);
-            }
-        }
-    }
+  }
 }
